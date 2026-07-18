@@ -10,7 +10,7 @@
             [torifune.methods.disposal-plan :as disposal]
             [torifune.methods.datom-emit :as datom]))
 
-(def actor-dir (-> *file* io/file .getParentFile .getParentFile))
+(def actor-dir (-> *file* io/file .getParentFile .getParentFile .getParentFile .getParentFile))
 (def seed (io/file actor-dir "data" "seed-ama-vehicle.kotoba.edn"))
 (defn load-seed [] (core/load-file* seed))
 

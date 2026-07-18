@@ -1,0 +1,4 @@
+(require '[clojure.test :as t])
+(def suites '[torifune.tests.test-kotoba torifune.tests.test-torifune torifune.murakumo-test torifune.repository-contract-test])
+(apply require suites)
+(let [{:keys [fail error] :as r} (apply t/run-tests suites)] (println (select-keys r [:test :pass :fail :error])) (when (pos? (+ fail error)) (System/exit 1)))
