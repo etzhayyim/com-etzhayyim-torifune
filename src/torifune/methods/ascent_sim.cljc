@@ -15,7 +15,7 @@
 
   House style: Python ':…' keyword strings stay strings; pure fns; file I/O only at edges.
   Portable .cljc."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── minimal EDN reader (subset) — mirrors ascent_sim.py _TOK/_tokens/_atom/_parse faithfully.
 ;; Keywords kept as \":ns/name\" strings (NOT clojure keywords) so the pipeline stays string-keyed.

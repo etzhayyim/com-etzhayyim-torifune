@@ -22,7 +22,7 @@
   appends to a local file. G1: a CIVILIAN launch vehicle, NEVER a weapon-delivery /
   ballistic-strike vehicle — strike/munition trajectories + buses are structurally
   unrepresentable in the ontology (no such :traj/class or :payload/class member)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])))
 
 (defn add [entity attr value] [":db/add" entity attr value])
