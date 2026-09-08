@@ -14,7 +14,7 @@
   resume-safe. IDEMPOTENT-BY-CONTENT: a beat whose ground datoms equal the previous beat's is a
   NO-OP. No-server-key: appends to a local file only, no network I/O. G1: civilian launch only —
   strike/munition trajectories are structurally unrepresentable."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [torifune.methods.ascent-sim :as core]
             [torifune.methods.datom-emit :as de]
             [torifune.methods.kotoba :as k]

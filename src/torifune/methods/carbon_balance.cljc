@@ -4,7 +4,7 @@
 
   net = Σ over stages (stage prop-mass-kg × carbon-balance of the propellant that fuels its
   engine). G2 pass iff every fueled propellant is net ≤ 0 and none is disfavored."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [torifune.methods.ascent-sim :as core]))
 
 (def disfavored #{":disfavored-fossil" ":disfavored-hypergolic-toxic"})

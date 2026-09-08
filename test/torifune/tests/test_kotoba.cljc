@@ -4,7 +4,7 @@
 (ns torifune.tests.test-kotoba
   (:require [torifune.methods.kotoba :as k]
             [torifune.methods.autorun :as auto]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is run-tests]]
             [clojure.java.io :as io]))
 

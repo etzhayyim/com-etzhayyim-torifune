@@ -4,7 +4,7 @@
   (:require [clojure.test :refer [deftest is run-tests]]
             [clojure.java.io :as io]
             [clojure.set]
-            [clojure.string]
+            [kotoba.lang.text]
             [torifune.methods.ascent-sim :as core]
             [torifune.methods.carbon-balance :as carbon]
             [torifune.methods.disposal-plan :as disposal]
@@ -73,17 +73,17 @@
 (deftest test-datom-emit-ground-and-transient
   (let [{:keys [nodes edges]} (load-seed)
         out (datom/emit nodes edges 7)]
-    (is (clojure.string/includes? out ":add]"))
-    (is (clojure.string/includes? out ":vehicle/class"))
-    (is (clojure.string/includes? out ":en/kind"))
-    (is (clojure.string/includes? out ":bond/is-transient true"))
-    (is (clojure.string/includes? out ":bond/dv-margin-ms"))
+    (is (kotoba.lang.text/includes? out ":add]"))
+    (is (kotoba.lang.text/includes? out ":vehicle/class"))
+    (is (kotoba.lang.text/includes? out ":en/kind"))
+    (is (kotoba.lang.text/includes? out ":bond/is-transient true"))
+    (is (kotoba.lang.text/includes? out ":bond/dv-margin-ms"))
     (doseq [bad [":traj/impact-point" ":payload/warhead" ":depressed-strike" ":munition"]]
-      (is (not (clojure.string/includes? out bad)) (str "G1 violation in datom log: " bad)))
-    (doseq [line (clojure.string/split-lines out)]
-      (when (and (clojure.string/starts-with? line "[") (clojure.string/includes? line ":bond/"))
-        (is (clojure.string/includes? line ":derived]") (str "derived not transient: " line))))
-    (is (clojure.string/includes? out " 7 :add]"))))
+      (is (not (kotoba.lang.text/includes? out bad)) (str "G1 violation in datom log: " bad)))
+    (doseq [line (kotoba.lang.text/split-lines out)]
+      (when (and (kotoba.lang.text/starts-with? line "[") (kotoba.lang.text/includes? line ":bond/"))
+        (is (kotoba.lang.text/includes? line ":derived]") (str "derived not transient: " line))))
+    (is (kotoba.lang.text/includes? out " 7 :add]"))))
 
 (deftest test-determinism
   (let [{n1 :nodes e1 :edges} (load-seed)

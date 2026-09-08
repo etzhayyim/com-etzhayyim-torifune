@@ -5,7 +5,7 @@
   GROUND (durable, op :add) — node + 縁 datoms. DERIVED (transient, :bond/is-transient true) —
   Δv margin / carbon balance / deorbit debt, computed on read (N1).
   G1: no strike-trajectory / munition-payload attribute is emitted (none exists; check-g1 runs)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [torifune.methods.ascent-sim :as core]
             [torifune.methods.carbon-balance :as carbon]
             [torifune.methods.disposal-plan :as disposal]))

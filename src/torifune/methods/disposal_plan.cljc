@@ -4,7 +4,7 @@
 
   Every :mission MUST carry at least one :disposes edge to a :disposal-plan; a mission with
   none is REFUSED (throws). Emits total added deorbit-debt as a hoshimori-consumable input."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [torifune.methods.ascent-sim :as core]))
 
 (defn plan [nodes edges]
