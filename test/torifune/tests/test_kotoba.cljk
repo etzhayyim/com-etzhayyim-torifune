@@ -1,6 +1,6 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; torifune 鳥船 — launch-vehicle-ledger persistence + heartbeat tests.
-;; Run:  bb --classpath 20-actors 20-actors/torifune/tests/test_kotoba.cljc
+;; Run:  kbb --classpath 20-actors 20-actors/torifune/tests/test_kotoba.cljc
 (ns torifune.tests.test-kotoba
   (:require [torifune.methods.kotoba :as k]
             [torifune.methods.autorun :as auto]

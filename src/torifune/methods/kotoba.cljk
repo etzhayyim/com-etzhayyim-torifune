@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; torifune 鳥船 — launch-vehicle graph DATOM-LOG writer (content-addressed commit-DAG).
 (ns torifune.methods.kotoba
   "kotoba.cljc — torifune 鳥船 append-only LAUNCH-VEHICLE LEDGER writer
