@@ -1,0 +1,19 @@
+{:format :kotoba.cljk-origin/v1
+ :renamed-on "2026-09-11"
+ :decision "adr-2609111500-cljk-rename-all-clojure-source (com-junkawasaki/root 90-docs/adr; owner instruction 2026-09-11)"
+ :rule "value = the extension the file had before the rename. A path ending in .clj.cljk or .cljs.cljk kept it in the name because both platform files existed (or the plain target was taken)."
+ :origins
+ {"run_tests.cljk" ".clj"
+  "src/torifune/cells/social_post/state_machine.cljk" ".cljc"
+  "src/torifune/methods/ascent_sim.cljk" ".cljc"
+  "src/torifune/methods/autorun.cljk" ".cljc"
+  "src/torifune/methods/carbon_balance.cljk" ".cljc"
+  "src/torifune/methods/datom_emit.cljk" ".cljc"
+  "src/torifune/methods/disposal_plan.cljk" ".cljc"
+  "src/torifune/methods/kotoba.cljk" ".cljc"
+  "src/torifune/methods/social.cljk" ".cljc"
+  "src/torifune/murakumo.cljk" ".cljc"
+  "test/torifune/murakumo_test.cljk" ".cljc"
+  "test/torifune/repository_contract_test.cljk" ".clj"
+  "test/torifune/tests/test_kotoba.cljk" ".cljc"
+  "test/torifune/tests/test_torifune.cljk" ".cljc"}}
