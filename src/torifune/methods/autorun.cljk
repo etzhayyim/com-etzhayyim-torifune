@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; torifune 鳥船 — autonomous heartbeat: load the launch-vehicle graph → append GROUND datoms.
 (ns torifune.methods.autorun
   "autorun.cljc — torifune 鳥船 deterministic heartbeat (ADR-2606162355, subaru/inochi pattern).
