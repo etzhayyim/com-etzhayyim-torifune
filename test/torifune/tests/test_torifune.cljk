@@ -3,7 +3,7 @@
   1:1 Clojure port of tests/test_torifune.py."
   (:require [kotoba.test :refer [deftest is run-tests]]
             [kotoba.io :as io]
-            [clojure.set]
+            [kotoba.lang.coll]
             [kotoba.lang.text]
             [torifune.methods.ascent-sim :as core]
             [torifune.methods.carbon-balance :as carbon]
@@ -19,7 +19,7 @@
     (is (>= (count nodes) 18) (str "expected a real seed, got " (count nodes) " nodes"))
     (is (>= (count edges) 12) (str "expected a real 縁 web, got " (count edges) " edges"))
     (let [kinds (set (map #(get % ":organism/kind") (vals nodes)))]
-      (is (clojure.set/subset?
+      (is (kotoba.lang.coll/subset?
            #{":vehicle" ":stage" ":engine" ":propellant" ":mission"
              ":payload" ":trajectory" ":disposal-plan"} kinds)
           (str "missing kinds: " kinds)))
