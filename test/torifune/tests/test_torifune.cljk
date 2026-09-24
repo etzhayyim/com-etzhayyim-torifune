@@ -2,7 +2,7 @@
   "torifune 鳥船 — sim + carbon + disposal + datom-emit tests (ADR-2606162355).
   1:1 Clojure port of tests/test_torifune.py."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [clojure.set]
             [kotoba.lang.text]
             [torifune.methods.ascent-sim :as core]
@@ -10,7 +10,7 @@
             [torifune.methods.disposal-plan :as disposal]
             [torifune.methods.datom-emit :as datom]))
 
-(def actor-dir (-> *file* io/file .getParentFile .getParentFile .getParentFile .getParentFile))
+(def actor-dir (-> *file* io/file io/parent-file io/parent-file io/parent-file io/parent-file))
 (def seed (io/file actor-dir "data" "seed-ama-vehicle.kotoba.edn"))
 (defn load-seed [] (core/load-file* seed))
 
