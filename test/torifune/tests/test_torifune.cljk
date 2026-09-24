@@ -1,7 +1,7 @@
 (ns torifune.tests.test-torifune
   "torifune 鳥船 — sim + carbon + disposal + datom-emit tests (ADR-2606162355).
   1:1 Clojure port of tests/test_torifune.py."
-  (:require [clojure.test :refer [deftest is run-tests]]
+  (:require [kotoba.test :refer [deftest is run-tests]]
             [kotoba.io :as io]
             [clojure.set]
             [kotoba.lang.text]
