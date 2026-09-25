@@ -1,7 +1,7 @@
 (ns torifune.tests.test-torifune
   "torifune 鳥船 — sim + carbon + disposal + datom-emit tests (ADR-2606162355).
   1:1 Clojure port of tests/test_torifune.py."
-  (:require [kotoba.test :refer [deftest is run-tests]]
+  (:require [kotoba.lang.error :as kerror] [kotoba.test :refer [deftest is run-tests]]
             [kotoba.io :as io]
             [kotoba.lang.coll]
             [kotoba.lang.text]
@@ -40,12 +40,12 @@
     (let [bad (assoc nodes "lv.traj.strike"
                      {":organism/id" "lv.traj.strike" ":organism/kind" ":trajectory"
                       ":traj/class" ":depressed-strike"})]
-      (is (thrown? clojure.lang.ExceptionInfo (core/check-g1 bad))))
+      (is (thrown? kerror/ExceptionInfo (core/check-g1 bad))))
     ;; a munition payload must be REFUSED
     (let [bad (assoc nodes "lv.payload.muni"
                      {":organism/id" "lv.payload.muni" ":organism/kind" ":payload"
                       ":payload/class" ":munition"})]
-      (is (thrown? clojure.lang.ExceptionInfo (core/check-g1 bad))))))
+      (is (thrown? kerror/ExceptionInfo (core/check-g1 bad))))))
 
 (deftest test-ascent-reaches-orbit
   (let [{:keys [nodes edges]} (load-seed)
@@ -68,7 +68,7 @@
     (is (seq (:missions res)))
     (doseq [m (:missions res)] (is (seq (:plans m)) (str "mission " (:mission m) " no disposal")))
     (let [edges-no-disp (remove #(= ":disposes" (get % ":en/kind")) edges)]
-      (is (thrown? clojure.lang.ExceptionInfo (disposal/plan nodes edges-no-disp))))))
+      (is (thrown? kerror/ExceptionInfo (disposal/plan nodes edges-no-disp))))))
 
 (deftest test-datom-emit-ground-and-transient
   (let [{:keys [nodes edges]} (load-seed)
