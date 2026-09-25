@@ -23,7 +23,7 @@
   ballistic-strike vehicle — strike/munition trajectories + buses are structurally
   unrepresentable in the ontology (no such :traj/class or :payload/class member)."
   (:require [kotoba.bytes :as kbytes] [kotoba.lang.text :as str]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (defn add [entity attr value] [":db/add" entity attr value])
 
@@ -130,8 +130,8 @@
    (do
      (defn append-tx [tx log-path]
        (let [f (io/file log-path)]
-         (when-let [p (.getParentFile f)] (.mkdirs p))
-         (when-not (.exists f)
+         (when-let [p (io/parent-file f)] (io/mkdirs p))
+         (when-not (io/exists? f)
            (spit f (str ";; torifune 鳥船 — LAUNCH-VEHICLE LEDGER (append-only, content-addressed EAVT "
                         "commit-DAG of the vehicle/stage/engine/propellant/mission/disposal graph). "
                         "Generated; DO NOT hand-edit. CIVILIAN launch only — strike/munition trajectories "
@@ -141,7 +141,7 @@
 
      (defn read-log [log-path]
        (let [f (io/file log-path)]
-         (if-not (.exists f) []
+         (if-not (io/exists? f) []
                  (->> (str/split-lines (slurp f))
                       (map str/trim)
                       (remove #(or (empty? %) (str/starts-with? % ";")))
